@@ -15,10 +15,10 @@ class HexBytes extends Component {
     return (
       <div>
         {this.state.value.map((byte, index) =>
-          <>
-            <HexByte value={byte} key={index + "-" + byte}/>
+          <span key={index + "-" + byte}>
+            <HexByte value={byte}/>
             <Typography sx={{ fontFamily: 'Monospace'  }} display="inline">&nbsp;</Typography>
-          </>
+          </span>
         )}
       </div>
     )

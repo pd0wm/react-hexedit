@@ -6,28 +6,19 @@ import HexBytes from "./HexBytes";
 import AsciiBytes from "./AsciiBytes";
 
 class HexEditorRow extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      addr: props.addr,
-      data: props.data,
-    };
-  }
-
   render() {
     return (
       <Grid container item spacing={2}>
         <Grid item xs={2}>
           <Typography sx={{ fontFamily: 'Monospace' }} color='text.secondary' align="right">
-            0x{this.state.addr.toString(16).padStart(8, '0')}
+            0x{this.props.addr.toString(16).padStart(8, '0')}
           </Typography>
         </Grid>
         <Grid item xs={6}>
-          <HexBytes value={this.state.data}/>
+          <HexBytes value={this.props.data}/>
         </Grid>
         <Grid item xs={4}>
-          <AsciiBytes value={this.state.data}/>
+          <AsciiBytes value={this.props.data}/>
         </Grid>
       </Grid>
     );

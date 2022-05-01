@@ -16,9 +16,10 @@ class HexEditorBody extends Component {
     const num_bytes = 16;
     return (
       <Grid container spacing={0}>
-        {Array(Math.ceil(this.state.data.length / num_bytes)).fill(0).map((_, i) =>
-          <HexEditorRow data={this.state.data} addr={i * num_bytes} length={num_bytes} key={i * num_bytes + "-" + num_bytes}/>
-        )}
+        {Array(Math.ceil(this.state.data.length / num_bytes)).fill(0).map((_, i) => {
+            const data = this.state.data.slice(i * num_bytes, (i + 1) * num_bytes);
+            return <HexEditorRow data={data} addr={i * num_bytes} key={i + "-" + data}/>;
+        })}
       </Grid>
     );
   }

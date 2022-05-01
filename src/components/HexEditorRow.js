@@ -11,8 +11,7 @@ class HexEditorRow extends Component {
 
     this.state = {
       addr: props.addr,
-      length: props.len,
-      data: props.data.slice(props.addr, props.addr + props.length),
+      data: props.data,
     };
   }
 

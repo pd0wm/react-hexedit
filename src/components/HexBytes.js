@@ -5,9 +5,9 @@ import HexByte from "./HexByte";
 function HexBytes(props) {
   return (
     <div>
-      {props.value.map((byte, index) =>
-        <span key={index + "-" + byte}>
-          <HexByte value={byte}/>
+      {Array(Math.ceil(props.value.byteLength)).fill(0).map((_, i) =>
+        <span key={i + "-" + props.value[i]}>
+          <HexByte value={props.value[i]}/>
           <Typography sx={{ fontFamily: 'Monospace'  }} display="inline">&nbsp;</Typography>
         </span>
       )}

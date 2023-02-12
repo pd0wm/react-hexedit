@@ -3,8 +3,8 @@ import AsciiByte from "./AsciiByte";
 function AsciiBytes(props) {
   return (
     <div>
-      {props.value.map((byte, index) =>
-        <AsciiByte value={byte} key={index + "-" + byte}/>
+      {Array(Math.ceil(props.value.byteLength)).fill(0).map((_, i) =>
+        <AsciiByte value={props.value[i]} key={i + "-" + props.value[i]}/>
       )}
     </div>
   );

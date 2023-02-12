@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: new Uint8Array([]),
     };
 
     this.handleUpload = this.handleUpload.bind(this);
@@ -24,13 +24,10 @@ class App extends Component {
     var reader = new FileReader();
 
     reader.onload = (event) => {
-      console.log("Parsing");
-      const s = [...event.target.result];
-      this.setState({data: s.map((c) => c.charCodeAt(0))});
-      console.log("done");
+      this.setState({data: new Uint8Array(event.target.result)});
     };
 
-    reader.readAsBinaryString(file);
+    reader.readAsArrayBuffer(file);
   }
 
   render() {

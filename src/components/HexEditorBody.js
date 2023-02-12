@@ -8,7 +8,7 @@ class HexEditorBody extends Component {
     const num_bytes = 16;
     return (
       <Grid container>
-        {Array(Math.ceil(this.props.data.length / num_bytes)).fill(0).map((_, i) => {
+        {Array(Math.ceil(this.props.data.byteLength / num_bytes)).fill(0).map((_, i) => {
             const data = this.props.data.slice(i * num_bytes, (i + 1) * num_bytes);
             return <HexEditorRow data={data} addr={i * num_bytes} key={i + "-" + data}/>;
         })}
